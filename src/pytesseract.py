@@ -104,7 +104,7 @@ def save_image(image):
     if image.format not in {'JPEG', 'PNG', 'TIFF', 'BMP', 'GIF'}:
         img_extension = 'PNG'
 
-    if not image.mode.startswith(RGB_MODE):
+    if not (image.mode.startswith(RGB_MODE) or image.mode == "1"):
         image = image.convert(RGB_MODE)
 
     if 'A' in image.getbands():
